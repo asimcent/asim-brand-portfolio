@@ -21,7 +21,7 @@ const projects = [
     number: '01',
     title: 'Edulga.Ai',
     category: 'Brand identity · 2024',
-    description: 'A clear, confident identity designed to make learning feel more open and approachable.',
+    description: 'A confident identity for an AI that turns learning into connected, bite-sized nodes — rebuilt from outdated to unmistakably smart.',
     tags: ['Brand identity', 'Logo design', 'Art direction'],
     visual: 'orbit',
     accent: 'coral',
