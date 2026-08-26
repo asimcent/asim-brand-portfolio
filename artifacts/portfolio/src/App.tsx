@@ -19,7 +19,7 @@ const navItems = [
 const projects = [
   {
     number: '01',
-    title: 'Edulga',
+    title: 'Edulga.Ai',
     category: 'Brand identity · 2024',
     description: 'A clear, confident identity designed to make learning feel more open and approachable.',
     tags: ['Brand identity', 'Logo design', 'Art direction'],
