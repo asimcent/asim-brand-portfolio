@@ -1,6 +1,7 @@
 import { type ReactNode, useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Box, Check, Dribbble, Linkedin, Mail, MapPin, Menu, Palette, PenTool, Share2, X } from 'lucide-react';
+import edulgaImage from '@assets/image_1787763175552.png';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -114,9 +115,9 @@ function Home() {
         <section className="hero-section" aria-labelledby="hero-heading">
           <div className="hero-grid" aria-hidden="true" />
           <div className="hero-content">
-             <p className="eyebrow reveal-up"><span className="eyebrow-line" /> Graphic designer / brand maker</p>
+            <p className="eyebrow reveal-up"><span className="eyebrow-line" /> Designer</p>
             <h1 id="hero-heading" className="hero-heading reveal-up delay-1">
-              Brand design<br /><em>that stands</em><br /><span className="hero-outline">out.</span>
+              <span className="hero-title-line">Brand design</span><br /><em>that stands</em><br /><span className="hero-outline">out.</span>
             </h1>
             <div className="hero-bottom reveal-up delay-2">
               <p className="hero-intro">Brand Designer crafting identities, creative direction, and packaging that stand out.</p>
@@ -132,15 +133,15 @@ function Home() {
           <div className="about-layout">
              <h2 id="about-heading" className="display-heading">Good design<br />starts with a <em>feeling.</em></h2>
             <div className="about-copy">
-               <p className="lead-copy">I don’t sell logos. I sell clarity — the kind that makes people instantly get who you are and why you matter.</p>
-               <p>I help founders and growing businesses turn good ideas into visual identities people remember. My practice moves between brand identity, logo design, packaging, and creative direction — always looking for the detail that makes the whole thing click.</p>
+               <p className="lead-copy">I don’t just sell logos. I sell clarity — the kind that makes people instantly get who you are, what you stand for, and why you matter.</p>
+               <p>I help founders, brands, and growing businesses turn strong concepts into sharp visual identities that stick. Leading creative direction across brand identity, logo design, digital art, packaging, and video, my approach focuses on finding the precise detail that brings the entire narrative to life.</p>
               <a href="#contact" className="text-link" data-testid="link-about-contact">Let’s make it memorable <ArrowRight size={17} /></a>
             </div>
           </div>
           <div className="about-detail-row">
             <div className="detail-block"><span className="detail-label">Working from</span><strong>Anywhere in the world <MapPin size={14} /></strong></div>
-             <div className="detail-block"><span className="detail-label">Currently</span><strong>Independent / open to good briefs</strong></div>
-             <div className="detail-block"><span className="detail-label">Focus</span><strong>Identity · Packaging · Direction</strong></div>
+             <div className="detail-block"><span className="detail-label">Currently</span><strong>Available for freelance &amp; creative direction.</strong></div>
+             <div className="detail-block"><span className="detail-label">Focus</span><strong>Brand Identity · Digital Art · Video &amp; Motion.</strong></div>
           </div>
         </section>
 
@@ -154,7 +155,7 @@ function Home() {
             {projects.map((project) => (
               <a className={`project-card project-${project.visual}`} href="#contact" key={project.number} data-testid={`card-project-${project.visual}`}>
                 <div className={`project-visual ${project.accent}`} aria-hidden="true">
-                   {project.visual === 'orbit' && <><div className="orbit-ring ring-one" /><div className="orbit-ring ring-two" /><div className="orbit-core">EDU<span>+</span></div><div className="visual-caption">ONE IDEA<br />MANY DETAILS</div></>}
+                   {project.visual === 'orbit' && <img className="project-image" src={edulgaImage} alt="Edulga.Ai brand identity" />}
                    {project.visual === 'field' && <><div className="field-sun" /><div className="field-sheet sheet-back">AQUA<br />WORLD</div><div className="field-sheet sheet-front">PURE<br /><em>by nature.</em></div><div className="visual-caption">PACKED<br />WITH INTENTION</div></>}
                    {project.visual === 'civic' && <><div className="civic-bars"><i /><i /><i /><i /><i /><i /></div><div className="civic-label">CLUB<br /><strong>ONE</strong></div><div className="civic-orbit" /><div className="visual-caption">A FEED<br />WORTH PAUSING</div></>}
                 </div>
