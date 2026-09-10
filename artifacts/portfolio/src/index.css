@@ -651,11 +651,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .project-list { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4.5rem); margin-top: 78px; }
 .project-card { display: block; color: hsl(var(--foreground)); text-decoration: none; }
 .project-card:nth-child(2) { margin-top: 110px; }
-.project-card:nth-child(3) { grid-column: 1 / -1; width: min(660px, 100%); margin-left: 18%; }
+.project-card:nth-child(3), .project-card:nth-child(4) { grid-column: 1 / -1; width: min(660px, 100%); margin-left: 18%; }
 .project-visual { position: relative; height: clamp(280px, 34vw, 440px); overflow: hidden; }
 .project-visual.coral { background: hsl(var(--accent)); }
 .project-visual.teal { background: hsl(177 35% 48%); }
 .project-visual.yellow { background: hsl(43 77% 63%); }
+.project-visual.lilac { background: hsl(266 34% 76%); }
 .project-image { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .project-meta { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; padding-top: 20px; }
 .project-number { color: hsl(var(--accent)); font-family: var(--app-font-mono); font-size: 0.63rem; }
@@ -686,6 +687,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .civic-label { position: absolute; top: 16%; left: 13%; font-family: var(--app-font-mono); font-size: 0.65rem; letter-spacing: 0.1em; line-height: 1.2; }
 .civic-label strong { font-size: 1.5rem; letter-spacing: -0.06em; }
 .civic-orbit { position: absolute; top: 13%; right: 14%; width: 60px; height: 60px; border: 1px solid hsl(var(--foreground) / 0.7); border-radius: 50%; }
+.nodes-lines { position: absolute; inset: 0; }
+.nodes-lines i { position: absolute; height: 1px; background: hsl(var(--foreground) / 0.3); transform-origin: left center; }
+.nodes-lines .line-one { top: 31%; left: 21%; width: 31%; transform: rotate(23deg); }
+.nodes-lines .line-two { top: 31%; left: 52%; width: 27%; transform: rotate(28deg); }
+.nodes-lines .line-three { top: 31%; left: 52%; width: 22%; transform: rotate(117deg); }
+.nodes-lines .line-four { top: 68%; left: 28%; width: 27%; transform: rotate(-44deg); }
+.nodes-lines .line-five { top: 68%; left: 55%; width: 24%; transform: rotate(-19deg); }
+.nodes-lines .line-six { top: 68%; left: 55%; width: 20%; transform: rotate(-113deg); }
+.node { position: absolute; display: grid; place-items: center; width: 58px; height: 58px; border-radius: 50%; color: hsl(var(--foreground) / 0.72); font-family: var(--app-font-mono); font-size: 0.57rem; box-shadow: 0 0 0 9px hsl(var(--background) / 0.18), 0 0 24px hsl(var(--background) / 0.45); }
+.node-one { top: 23%; left: 17%; background: hsl(43 77% 73%); }
+.node-two { top: 24%; left: 48%; background: hsl(177 51% 71%); }
+.node-three { top: 55%; left: 20%; background: hsl(9 76% 72%); }
+.node-four { top: 56%; left: 51%; background: hsl(43 77% 83%); }
+.node-five { top: 24%; right: 14%; width: 46px; height: 46px; background: hsl(177 51% 80%); }
+.nodes-label { position: absolute; right: 18px; bottom: 16px; color: hsl(var(--foreground) / 0.65); font-family: var(--app-font-mono); font-size: 0.58rem; letter-spacing: 0.1em; line-height: 1.4; }
+.nodes-label em { color: hsl(var(--foreground)); font-family: var(--app-font-serif); font-size: 1.45em; letter-spacing: -0.03em; }
 
 .skills-section { overflow: hidden; background: hsl(var(--foreground)); color: hsl(var(--background)); }
 .skills-section .section-kicker, .skills-section .detail-label { color: hsl(var(--background) / 0.55); }
@@ -745,7 +762,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .work-heading-row { display: block; }
   .section-aside { margin: 32px 0 0; }
   .project-list { grid-template-columns: 1fr; gap: 58px; margin-top: 55px; }
-  .project-card:nth-child(2), .project-card:nth-child(3) { grid-column: auto; width: 100%; margin: 0; }
+  .project-card:nth-child(2), .project-card:nth-child(3), .project-card:nth-child(4) { grid-column: auto; width: 100%; margin: 0; }
   .project-visual { height: 300px; }
   .skills-layout { margin-top: 3.5rem; }
   .contact-layout { margin-top: 4rem; }

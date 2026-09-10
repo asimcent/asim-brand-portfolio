@@ -45,13 +45,22 @@ const projects = [
     visual: 'civic',
     accent: 'yellow',
   },
+  {
+    number: '04',
+    title: 'Edulga Nodes Jump',
+    category: 'Motion design · 2024',
+    description: 'Designed a minimalist, hand-drawn node network Animation to showcase how Edulga’s AI tailors learning paths. Each glowing pastel node represents a milestone, giving organic movement and structure to complex educational data in a way that feels effortless and clear.',
+    tags: ['Motion design', 'Animation', 'Creative direction'],
+    visual: 'nodes',
+    accent: 'lilac',
+  },
 ];
 
 const capabilities = [
-  { icon: Palette, title: 'Brand Identity', text: 'Distinctive visual worlds, from the first idea to the final brand guidelines.' },
-  { icon: PenTool, title: 'Logo Design', text: 'Memorable marks with the clarity and flexibility to work everywhere your brand shows up.' },
-  { icon: Box, title: 'Packaging Design', text: 'Shelf-ready packaging that feels good in the hand and makes the product memorable.' },
-  { icon: Share2, title: 'Creative Direction', text: 'A clear visual point of view across campaigns, social content, and every brand touchpoint.' },
+  { icon: Palette, title: 'Brand Identity', text: 'Visual systems, logo marks, and complete brand guidelines.' },
+  { icon: Share2, title: 'Video & Motion Design', text: 'Dynamic video editing, motion graphics, and animated assets for digital campaigns.' },
+  { icon: Box, title: 'Packaging Design', text: 'Shelf-ready packaging that feels premium in hand and stands out.' },
+  { icon: PenTool, title: 'Creative Direction', text: 'Leading visual art, campaigns, and multi-channel brand touchpoints.' },
 ];
 
 function Home() {
@@ -133,8 +142,8 @@ function Home() {
           <div className="about-layout">
              <h2 id="about-heading" className="display-heading">Good design<br />starts with a <em>feeling.</em></h2>
             <div className="about-copy">
-               <p className="lead-copy">I don’t just sell logos. I sell clarity — the kind that makes people instantly get who you are, what you stand for, and why you matter.</p>
-               <p>I help founders, brands, and growing businesses turn strong concepts into sharp visual identities that stick. Leading creative direction across brand identity, logo design, digital art, packaging, and video, my approach focuses on finding the precise detail that brings the entire narrative to life.</p>
+               <p className="lead-copy">I don’t just sell logos. I sell clarity, the kind that makes people instantly get who you are, what you stand for, and why you matter.</p>
+                <p>I help founders, brands, and growing businesses turn strong concepts into sharp visual identities that stick. Leading creative direction across brand identity, logo design, digital art, packaging, and video, I focus on the precise details that bring the entire narrative to life.</p>
               <a href="#contact" className="text-link" data-testid="link-about-contact">Let’s make it memorable <ArrowRight size={17} /></a>
             </div>
           </div>
@@ -158,6 +167,7 @@ function Home() {
                    {project.visual === 'orbit' && <img className="project-image" src={edulgaImage} alt="Edulga.Ai brand identity" />}
                    {project.visual === 'field' && <><div className="field-sun" /><div className="field-sheet sheet-back">AQUA<br />WORLD</div><div className="field-sheet sheet-front">PURE<br /><em>by nature.</em></div><div className="visual-caption">PACKED<br />WITH INTENTION</div></>}
                    {project.visual === 'civic' && <><div className="civic-bars"><i /><i /><i /><i /><i /><i /></div><div className="civic-label">CLUB<br /><strong>ONE</strong></div><div className="civic-orbit" /><div className="visual-caption">A FEED<br />WORTH PAUSING</div></>}
+                    {project.visual === 'nodes' && <><div className="nodes-lines"><i className="line-one" /><i className="line-two" /><i className="line-three" /><i className="line-four" /><i className="line-five" /><i className="line-six" /></div><div className="node node-one"><span>01</span></div><div className="node node-two"><span>02</span></div><div className="node node-three"><span>03</span></div><div className="node node-four"><span>04</span></div><div className="node node-five"><span>05</span></div><div className="nodes-label">EDULGA<br /><em>NODES JUMP</em></div></>}
                 </div>
                 <div className="project-meta">
                   <div><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.category}</p></div>
@@ -188,7 +198,7 @@ function Home() {
               {!submitted ? <><label><span>Your name</span><input required name="name" placeholder="The human behind the brief" data-testid="input-contact-name" /></label><label><span>Email address</span><input required type="email" name="email" placeholder="you@company.com" data-testid="input-contact-email" /></label><label><span>What’s on your mind?</span><textarea required name="message" rows={3} placeholder="A sentence or two is perfect." data-testid="input-contact-message" /></label><button type="submit" className="submit-button" data-testid="button-submit-contact">Send the note <ArrowUpRight size={18} /></button></> : <div className="form-success" role="status" data-testid="status-contact-success"><div className="success-icon"><Check size={22} /></div><h3>Note received.</h3><p>Thanks for reaching out — I’ll be in touch soon.</p><button type="button" className="text-link" onClick={() => setSubmitted(false)} data-testid="button-send-another">Send another note <ArrowRight size={16} /></button></div>}
             </form>
           </div>
-          <footer className="site-footer"><a href="#top" className="brand-mark footer-brand" data-testid="link-footer-brand"><span className="brand-dot" /><span>Asim Abdul Ghafoor</span></a><span>© 2024 Asim Abdul Ghafoor</span><div className="social-links"><a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on LinkedIn" data-testid="link-social-linkedin"><Linkedin size={18} /></a><a href="https://dribbble.com" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on Dribbble" data-testid="link-social-dribbble"><Dribbble size={18} /></a></div></footer>
+           <footer className="site-footer"><a href="#top" className="brand-mark footer-brand" data-testid="link-footer-brand"><span className="brand-dot" /><span>Asim Abdul Ghafoor</span></a><span>© 2026 Asim Abdul Ghafoor</span><div className="social-links"><a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on LinkedIn" data-testid="link-social-linkedin"><Linkedin size={18} /></a><a href="https://dribbble.com" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on Dribbble" data-testid="link-social-dribbble"><Dribbble size={18} /></a></div></footer>
         </section>
       </main>
     </div>
