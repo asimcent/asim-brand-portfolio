@@ -4,6 +4,7 @@ import { ArrowDownRight, ArrowRight, ArrowUpRight, Box, Check, Dribbble, Linkedi
 import edulgaImage from '@assets/image_1787763175552.png';
 import nodesJumpGif from '@assets/e9299c13_1789148864168.gif';
 import clubBillionaireLogo from '@assets/image_1789150222882.png';
+import aquaWorldImage from '@assets/image_1789150764532.png';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -71,7 +72,7 @@ function ProjectArtwork({ project, lightbox = false }: { project: Project; light
   return (
     <div className={`project-visual ${project.accent} ${lightbox ? 'lightbox-visual' : ''}`} aria-hidden="true">
       {project.visual === 'orbit' && <img className="project-image" src={edulgaImage} alt="" />}
-      {project.visual === 'field' && <><div className="field-sun" /><div className="field-sheet sheet-back">AQUA<br />WORLD</div><div className="field-sheet sheet-front">PURE<br /><em>by nature.</em></div><div className="visual-caption">PACKED<br />WITH INTENTION</div></>}
+      {project.visual === 'field' && <img className="project-image project-aqua-image" src={aquaWorldImage} alt="" />}
       {project.visual === 'civic' && <img className="project-image project-logo-image" src={clubBillionaireLogo} alt="" />}
       {project.visual === 'nodes' && <img className="project-image project-motion-image" src={nodesJumpGif} alt="" />}
     </div>
