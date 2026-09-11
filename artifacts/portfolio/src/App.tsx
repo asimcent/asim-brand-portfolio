@@ -2,6 +2,8 @@ import { type ReactNode, useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Box, Check, Dribbble, Linkedin, Mail, MapPin, Menu, Palette, PenTool, Share2, X } from 'lucide-react';
 import edulgaImage from '@assets/image_1787763175552.png';
+import nodesJumpGif from '@assets/e9299c13_1789148864168.gif';
+import clubBillionaireLogo from '@assets/image_1789150222882.png';
 import { ErrorBoundary } from '@/components/error-boundary';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
@@ -166,8 +168,8 @@ function Home() {
                 <div className={`project-visual ${project.accent}`} aria-hidden="true">
                    {project.visual === 'orbit' && <img className="project-image" src={edulgaImage} alt="Edulga.Ai brand identity" />}
                    {project.visual === 'field' && <><div className="field-sun" /><div className="field-sheet sheet-back">AQUA<br />WORLD</div><div className="field-sheet sheet-front">PURE<br /><em>by nature.</em></div><div className="visual-caption">PACKED<br />WITH INTENTION</div></>}
-                   {project.visual === 'civic' && <><div className="civic-bars"><i /><i /><i /><i /><i /><i /></div><div className="civic-label">CLUB<br /><strong>ONE</strong></div><div className="civic-orbit" /><div className="visual-caption">A FEED<br />WORTH PAUSING</div></>}
-                    {project.visual === 'nodes' && <><div className="nodes-lines"><i className="line-one" /><i className="line-two" /><i className="line-three" /><i className="line-four" /><i className="line-five" /><i className="line-six" /></div><div className="node node-one"><span>01</span></div><div className="node node-two"><span>02</span></div><div className="node node-three"><span>03</span></div><div className="node node-four"><span>04</span></div><div className="node node-five"><span>05</span></div><div className="nodes-label">EDULGA<br /><em>NODES JUMP</em></div></>}
+                    {project.visual === 'civic' && <img className="project-image project-logo-image" src={clubBillionaireLogo} alt="Club Billionaire logo" />}
+                    {project.visual === 'nodes' && <img className="project-image project-motion-image" src={nodesJumpGif} alt="Edulga Nodes Jump animation" />}
                 </div>
                 <div className="project-meta">
                   <div><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.category}</p></div>
