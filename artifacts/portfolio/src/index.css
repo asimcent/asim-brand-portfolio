@@ -648,11 +648,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .work-section { background: hsl(var(--background)); }
 .work-heading-row { display: flex; align-items: flex-end; justify-content: space-between; margin-top: clamp(3.5rem, 7vw, 6rem); }
 .section-aside { width: 215px; margin: 0 4% 0 0; color: hsl(var(--muted-foreground)); font-size: 0.78rem; line-height: 1.6; }
-.project-list { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: clamp(2rem, 5vw, 5rem) clamp(1.5rem, 4vw, 4.5rem); margin-top: 78px; }
+.project-list { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(5rem, 10vw, 9rem) 2rem; margin-top: 78px; }
 .project-card { display: block; color: hsl(var(--foreground)); text-decoration: none; }
-.project-card:nth-child(2) { margin-top: 110px; }
-.project-card:nth-child(3), .project-card:nth-child(4) { grid-column: 1 / -1; width: min(660px, 100%); margin-left: 18%; }
+.project-card:nth-child(1) { grid-column: 1 / span 7; }
+.project-card:nth-child(2) { grid-column: 8 / -1; margin-top: clamp(4rem, 9vw, 8rem); }
+.project-card:nth-child(3) { grid-column: 2 / span 5; margin-top: clamp(1rem, 4vw, 3rem); }
+.project-card:nth-child(4) { grid-column: 7 / -1; margin-top: clamp(7rem, 14vw, 12rem); }
 .project-visual { position: relative; height: clamp(280px, 34vw, 440px); overflow: hidden; }
+.project-card:nth-child(1) .project-visual { height: clamp(340px, 39vw, 500px); }
 .project-visual.coral { background: hsl(var(--accent)); }
 .project-visual.teal { background: hsl(177 35% 48%); }
 .project-visual.yellow { background: hsl(43 77% 63%); }
@@ -762,7 +765,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .work-heading-row { display: block; }
   .section-aside { margin: 32px 0 0; }
   .project-list { grid-template-columns: 1fr; gap: 58px; margin-top: 55px; }
-  .project-card:nth-child(2), .project-card:nth-child(3), .project-card:nth-child(4) { grid-column: auto; width: 100%; margin: 0; }
+  .project-card:nth-child(1), .project-card:nth-child(2), .project-card:nth-child(3), .project-card:nth-child(4) { grid-column: auto; width: 100%; margin: 0; }
   .project-visual { height: 300px; }
   .skills-layout { margin-top: 3.5rem; }
   .contact-layout { margin-top: 4rem; }
