@@ -65,10 +65,24 @@ const capabilities = [
   { icon: PenTool, title: 'Creative Direction', text: 'Leading visual art, campaigns, and multi-channel brand touchpoints.' },
 ];
 
+type Project = (typeof projects)[number];
+
+function ProjectArtwork({ project, lightbox = false }: { project: Project; lightbox?: boolean }) {
+  return (
+    <div className={`project-visual ${project.accent} ${lightbox ? 'lightbox-visual' : ''}`} aria-hidden="true">
+      {project.visual === 'orbit' && <img className="project-image" src={edulgaImage} alt="" />}
+      {project.visual === 'field' && <><div className="field-sun" /><div className="field-sheet sheet-back">AQUA<br />WORLD</div><div className="field-sheet sheet-front">PURE<br /><em>by nature.</em></div><div className="visual-caption">PACKED<br />WITH INTENTION</div></>}
+      {project.visual === 'civic' && <img className="project-image project-logo-image" src={clubBillionaireLogo} alt="" />}
+      {project.visual === 'nodes' && <img className="project-image project-motion-image" src={nodesJumpGif} alt="" />}
+    </div>
+  );
+}
+
 function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [activeSection, setActiveSection] = useState('about');
+  const [lightboxProject, setLightboxProject] = useState<Project | null>(null);
 
   useEffect(() => {
     const sections = ['about', 'work', 'skills', 'contact']
@@ -84,6 +98,19 @@ function Home() {
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (!lightboxProject) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setLightboxProject(null);
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [lightboxProject]);
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -165,15 +192,21 @@ function Home() {
           <div className="project-list">
             {projects.map((project) => (
               <a className={`project-card project-${project.visual}`} href="#contact" key={project.number} data-testid={`card-project-${project.visual}`}>
-                <div className={`project-visual ${project.accent}`} aria-hidden="true">
-                   {project.visual === 'orbit' && <img className="project-image" src={edulgaImage} alt="Edulga.Ai brand identity" />}
-                   {project.visual === 'field' && <><div className="field-sun" /><div className="field-sheet sheet-back">AQUA<br />WORLD</div><div className="field-sheet sheet-front">PURE<br /><em>by nature.</em></div><div className="visual-caption">PACKED<br />WITH INTENTION</div></>}
-                    {project.visual === 'civic' && <img className="project-image project-logo-image" src={clubBillionaireLogo} alt="Club Billionaire logo" />}
-                    {project.visual === 'nodes' && <img className="project-image project-motion-image" src={nodesJumpGif} alt="Edulga Nodes Jump animation" />}
-                </div>
+                 <ProjectArtwork project={project} />
                 <div className="project-meta">
-                  <div><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.category}</p></div>
-                  <ArrowUpRight className="project-arrow" size={25} strokeWidth={1.5} />
+                   <div><span className="project-number">{project.number}</span><h3>{project.title}</h3><p>{project.category}</p></div>
+                   <button
+                     type="button"
+                     className="project-expand-button"
+                     aria-label={`Open ${project.title} full screen`}
+                     onClick={(event) => {
+                       event.preventDefault();
+                       event.stopPropagation();
+                       setLightboxProject(project);
+                     }}
+                   >
+                     <ArrowUpRight className="project-arrow" size={25} strokeWidth={1.5} />
+                   </button>
                 </div>
                 <p className="project-description">{project.description}</p>
                 <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
@@ -202,6 +235,32 @@ function Home() {
           </div>
            <footer className="site-footer"><a href="#top" className="brand-mark footer-brand" data-testid="link-footer-brand"><span className="brand-dot" /><span>Asim Abdul Ghafoor</span></a><span>© 2026 Asim Abdul Ghafoor</span><div className="social-links"><a href="https://www.linkedin.com" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on LinkedIn" data-testid="link-social-linkedin"><Linkedin size={18} /></a><a href="https://dribbble.com" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on Dribbble" data-testid="link-social-dribbble"><Dribbble size={18} /></a></div></footer>
         </section>
+
+        {lightboxProject && (
+          <div
+            className="lightbox-backdrop"
+            role="presentation"
+            onClick={() => setLightboxProject(null)}
+          >
+            <div
+              className="lightbox-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="lightbox-heading"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button type="button" className="lightbox-close" aria-label="Close full screen preview" onClick={() => setLightboxProject(null)}>
+                <X size={20} />
+              </button>
+              <ProjectArtwork project={lightboxProject} lightbox />
+              <div className="lightbox-meta">
+                <span className="project-number">{lightboxProject.number}</span>
+                <h2 id="lightbox-heading">{lightboxProject.title}</h2>
+                <p>{lightboxProject.category}</p>
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );

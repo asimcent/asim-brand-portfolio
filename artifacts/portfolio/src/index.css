@@ -667,6 +667,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .project-number { color: hsl(var(--accent)); font-family: var(--app-font-mono); font-size: 0.63rem; }
 .project-meta h3 { margin: 8px 0 2px; font-family: var(--app-font-serif); font-size: 2.35rem; font-weight: 400; letter-spacing: -0.04em; }
 .project-meta p { margin: 0; color: hsl(var(--muted-foreground)); font-family: var(--app-font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.project-expand-button { display: inline-flex; align-items: center; justify-content: center; border: 0; padding: 0; color: hsl(var(--accent)); background: transparent; cursor: pointer; }
+.project-expand-button:focus-visible { outline: 1px solid hsl(var(--accent)); outline-offset: 5px; }
 .project-arrow { color: hsl(var(--accent)); transition: transform 240ms ease; }
 .project-description { max-width: 320px; margin: 18px 0 0; color: hsl(var(--muted-foreground)); font-size: 0.85rem; line-height: 1.55; }
 .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
@@ -708,6 +710,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .node-five { top: 24%; right: 14%; width: 46px; height: 46px; background: hsl(177 51% 80%); }
 .nodes-label { position: absolute; right: 18px; bottom: 16px; color: hsl(var(--foreground) / 0.65); font-family: var(--app-font-mono); font-size: 0.58rem; letter-spacing: 0.1em; line-height: 1.4; }
 .nodes-label em { color: hsl(var(--foreground)); font-family: var(--app-font-serif); font-size: 1.45em; letter-spacing: -0.03em; }
+.lightbox-backdrop { position: fixed; z-index: 50; inset: 0; display: grid; place-items: center; padding: clamp(1rem, 4vw, 4rem); background: hsl(var(--foreground) / 0.82); backdrop-filter: blur(8px); }
+.lightbox-panel { position: relative; width: min(1100px, 100%); max-height: calc(100vh - 2rem); overflow: auto; padding: clamp(1rem, 2.5vw, 2rem); background: hsl(var(--background)); box-shadow: 0 24px 80px hsl(var(--foreground) / 0.35); }
+.lightbox-close { position: absolute; z-index: 2; top: 12px; right: 12px; display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid hsl(var(--foreground) / 0.35); color: hsl(var(--foreground)); background: hsl(var(--background) / 0.88); cursor: pointer; }
+.lightbox-close:hover { color: hsl(var(--accent)); border-color: hsl(var(--accent)); }
+.lightbox-close:focus-visible { outline: 1px solid hsl(var(--accent)); outline-offset: 4px; }
+.lightbox-visual { height: min(68vh, 680px); }
+.lightbox-meta { padding: 18px 3px 3px; }
+.lightbox-meta h2 { margin: 8px 0 3px; font-family: var(--app-font-serif); font-size: clamp(2rem, 4vw, 3.8rem); font-weight: 400; letter-spacing: -0.04em; }
+.lightbox-meta p { margin: 0; color: hsl(var(--muted-foreground)); font-family: var(--app-font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; }
 
 .skills-section { overflow: hidden; background: hsl(var(--foreground)); color: hsl(var(--background)); }
 .skills-section .section-kicker, .skills-section .detail-label { color: hsl(var(--background) / 0.55); }
@@ -769,6 +780,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .project-list { grid-template-columns: 1fr; gap: 58px; margin-top: 55px; }
   .project-card:nth-child(1), .project-card:nth-child(2), .project-card:nth-child(3), .project-card:nth-child(4) { grid-column: auto; width: 100%; margin: 0; }
   .project-visual { height: 300px; }
+  .lightbox-backdrop { padding: 0.75rem; }
+  .lightbox-panel { max-height: calc(100vh - 1.5rem); padding: 0.75rem; }
+  .lightbox-visual { height: 55vh; min-height: 260px; }
   .skills-layout { margin-top: 3.5rem; }
   .contact-layout { margin-top: 4rem; }
   .contact-form { margin-top: 1rem; }
