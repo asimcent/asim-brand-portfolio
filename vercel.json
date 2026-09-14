@@ -1,5 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "buildCommand": "pnpm --filter \"./artifacts/portfolio\" run build",
+  "outputDirectory": "artifacts/portfolio/dist",
+  "installCommand": "pnpm install",
   "framework": "vite"
 }
