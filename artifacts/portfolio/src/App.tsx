@@ -247,9 +247,72 @@ function Home() {
            <div className="contact-topline"><span>04 / Contact</span><span>Have a good brief? Start there.</span></div>
           <div className="contact-layout">
              <div className="contact-prompt"><h2 id="contact-heading">Let’s make<br /><em>your mark.</em></h2><p>Tell me what you’re building, launching, or rethinking. Whether you need a full identity or a focused campaign, I’d love to hear the story behind it.</p><a href="mailto:asimworkspace41@gmail.com" className="contact-email" data-testid="link-contact-email"><Mail size={17} /> asimworkspace41@gmail.com</a></div>
-             <form className="contact-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }} aria-label="Contact Asim Abdul Ghafoor">
-              {!submitted ? <><label><span>Your name</span><input required name="name" placeholder="The human behind the brief" data-testid="input-contact-name" /></label><label><span>Email address</span><input required type="email" name="email" placeholder="you@company.com" data-testid="input-contact-email" /></label><label><span>What’s on your mind?</span><textarea required name="message" rows={3} placeholder="A sentence or two is perfect." data-testid="input-contact-message" /></label><button type="submit" className="submit-button" data-testid="button-submit-contact">Send the note <ArrowUpRight size={18} /></button></> : <div className="form-success" role="status" data-testid="status-contact-success"><div className="success-icon"><Check size={22} /></div><h3>Note received.</h3><p>Thanks for reaching out — I’ll be in touch soon.</p><button type="button" className="text-link" onClick={() => setSubmitted(false)} data-testid="button-send-another">Send another note <ArrowRight size={16} /></button></div>}
-            </form>
+             <form
+  className="contact-form"
+  action="https://api.web3forms.com/submit"
+  method="POST"
+  aria-label="Contact Asim Abdul Ghafoor"
+>
+  {!submitted ? (
+    <>
+      <input
+        type="hidden"
+        name="access_key"
+        value="251787e9-2634-4975-8060-8ef4d21cec6f"
+      />
+
+      <label>
+        <span>Your name</span>
+        <input
+          required
+          name="name"
+          placeholder="The human behind the brief"
+          data-testid="input-contact-name"
+        />
+      </label>
+
+      <label>
+        <span>Email address</span>
+        <input
+          required
+          type="email"
+          name="email"
+          placeholder="you@company.com"
+          data-testid="input-contact-email"
+        />
+      </label>
+
+      <label>
+        <span>What’s on your mind?</span>
+        <textarea
+          required
+          name="message"
+          rows={3}
+          placeholder="A sentence or two is perfect."
+          data-testid="input-contact-message"
+        />
+      </label>
+
+      <button type="submit" className="submit-button" data-testid="button-submit-contact">
+        Send the note <ArrowUpRight size={18} />
+      </button>
+    </>
+  ) : (
+    <div className="form-success" role="status" data-testid="status-contact-success">
+      <div className="success-icon"><Check size={22} /></div>
+      <h3>Note received.</h3>
+      <p>Thanks for reaching out — I’ll be in touch soon.</p>
+      <button
+        type="button"
+        className="text-link"
+        onClick={() => setSubmitted(false)}
+        data-testid="button-send-another"
+      >
+        Send another note <ArrowRight size={16} />
+      </button>
+    </div>
+  )}
+</form>
           </div>
            <footer className="site-footer"><a href="#top" className="brand-mark footer-brand" data-testid="link-footer-brand"><span className="brand-dot" /><span>Asim Abdul Ghafoor</span></a><span>© 2026 Asim Abdul Ghafoor</span><div className="social-links"><a href="https://www.linkedin.com/in/asim-abdul-ghafoor-ba12262a3/" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on LinkedIn" data-testid="link-social-linkedin"><Linkedin size={18} /></a><a href="https://linktr.ee/Asimcent?utm_source=linktree_profile_share&ltsid=a16243eb-ab1a-410e-b775-f24805809220" target="_blank" rel="noreferrer" aria-label="Asim Abdul Ghafoor on Dribbble" data-testid="link-social-dribbble"><Dribbble size={18} /></a></div></footer>
         </section>
